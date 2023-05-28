@@ -2,7 +2,7 @@ package ru.bunkov.calculation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import ru.bunkov.calculation.model.district.Region;
+import ru.bunkov.calculation.model.region.Region;
 
 import java.util.UUID;
 

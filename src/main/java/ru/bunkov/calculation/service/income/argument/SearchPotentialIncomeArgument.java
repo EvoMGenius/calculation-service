@@ -2,7 +2,6 @@ package ru.bunkov.calculation.service.income.argument;
 
 import lombok.Builder;
 import lombok.Value;
-import ru.bunkov.calculation.model.income.ConditionalResult;
 
 import java.util.List;
 
@@ -10,5 +9,9 @@ import java.util.List;
 @Builder
 public class SearchPotentialIncomeArgument {
     String typeOfBusiness;
-    List<ConditionalResult> result;
+    Double potentialAnnualIncome;
+
+    Double rate;
+
+    Double totalPotentCost;
 }

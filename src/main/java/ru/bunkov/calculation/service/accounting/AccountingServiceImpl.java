@@ -45,18 +45,18 @@ public class AccountingServiceImpl implements AccountingService {
     public Accounting create(CreateAccountingArgument argument) {
         return repository.save(Accounting.builder()
                                          .organizationalAndLegalForm(argument.getOrganizationalAndLegalForm())
-                                         .generalTaxationSystem(argument.getGeneralTaxationSystem())
-                                         .simplifiedTaxationSystem(argument.getSimplifiedTaxationSystem())
-                                         .patent(argument.getPatent())
+                                         .simplifiedTaxationSystemMax(argument.getSimplifiedTaxationSystemMax())
+                                         .simplifiedTaxationSystemMin(argument.getSimplifiedTaxationSystemMin())
+                                         .generalTaxationSystemMin(argument.getGeneralTaxationSystemMin())
+                                         .generalTaxationSystemMax(argument.getGeneralTaxationSystemMax())
+                                         .patentMin(argument.getPatentMin())
+                                         .patentMax(argument.getPatentMax())
                                          .build());
     }
 
     private Predicate buildPredicate(SearchAccountingArgument argument) {
         return QPredicates.builder()
                           .add(argument.getOrganizationalAndLegalForm(), qAccounting.organizationalAndLegalForm::eq)
-                          .add(argument.getGeneralTaxationSystem(), qAccounting.generalTaxationSystem::eq)
-                          .add(argument.getSimplifiedTaxationSystem(), qAccounting.simplifiedTaxationSystem::eq)
-                          .add(argument.getPatent(), qAccounting.patent::eq)
                           .buildAnd();
     }
 }

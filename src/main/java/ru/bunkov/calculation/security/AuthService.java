@@ -1,14 +1,17 @@
 package ru.bunkov.calculation.security;
 
 import lombok.NonNull;
-import ru.bunkov.calculation.api.auth.dto.AuthRequest;
-import ru.bunkov.calculation.api.auth.dto.AuthResponse;
-import ru.bunkov.calculation.api.auth.dto.RegisterRequest;
+import org.springframework.security.core.userdetails.UserDetails;
+import ru.bunkov.calculation.api.external.auth.dto.AuthRequest;
+import ru.bunkov.calculation.api.external.auth.dto.AuthResponse;
+import ru.bunkov.calculation.api.external.auth.dto.RegisterRequest;
 
 import java.util.UUID;
 
 public interface AuthService {
     UUID getAuthorizedUserId() throws Exception;
+
+    UserDetails getAuthorizedUserDetails();
 
     void register(@NonNull RegisterRequest request);
 

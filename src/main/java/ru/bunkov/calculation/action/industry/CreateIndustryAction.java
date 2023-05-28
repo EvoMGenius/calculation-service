@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bunkov.calculation.api.industry.subindustry.dto.SubindustryDto;
+import ru.bunkov.calculation.api.external.industry.subindustry.dto.SubindustryDto;
 import ru.bunkov.calculation.model.industry.Industry;
 import ru.bunkov.calculation.model.industry.Subindustry;
 import ru.bunkov.calculation.service.industry.IndustryService;

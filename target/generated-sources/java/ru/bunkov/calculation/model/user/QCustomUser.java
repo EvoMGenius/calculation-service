@@ -20,7 +20,7 @@ public class QCustomUser extends EntityPathBase<CustomUser> {
 
     public static final QCustomUser customUser = new QCustomUser("customUser");
 
-    public final ListPath<ru.bunkov.calculation.model.Calculation, ru.bunkov.calculation.model.QCalculation> calculations = this.<ru.bunkov.calculation.model.Calculation, ru.bunkov.calculation.model.QCalculation>createList("calculations", ru.bunkov.calculation.model.Calculation.class, ru.bunkov.calculation.model.QCalculation.class, PathInits.DIRECT2);
+    public final ListPath<ru.bunkov.calculation.model.calculation.Calculation, ru.bunkov.calculation.model.calculation.QCalculation> calculations = this.<ru.bunkov.calculation.model.calculation.Calculation, ru.bunkov.calculation.model.calculation.QCalculation>createList("calculations", ru.bunkov.calculation.model.calculation.Calculation.class, ru.bunkov.calculation.model.calculation.QCalculation.class, PathInits.DIRECT2);
 
     public final StringPath city = createString("city");
 

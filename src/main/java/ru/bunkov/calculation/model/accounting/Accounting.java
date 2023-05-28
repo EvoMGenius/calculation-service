@@ -21,10 +21,16 @@ public class Accounting {
 
     private Form organizationalAndLegalForm;
 
-    private Double generalTaxationSystem;
+    private Double generalTaxationSystemMin;
 
-    private Double simplifiedTaxationSystem;
+    private Double generalTaxationSystemMax;
 
-    private Double patent;
+    private Double simplifiedTaxationSystemMin;
+
+    private Double simplifiedTaxationSystemMax;
+
+    private Double patentMin;
+
+    private Double patentMax;
 
 }

@@ -2,10 +2,7 @@ package ru.bunkov.calculation.model.income;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +18,7 @@ public class PotentialIncome {
     @GeneratedValue
     private UUID id;
 
+    @Column(columnDefinition = "text")
     private String typeOfBusiness;
 
     private Double potentialAnnualIncome;

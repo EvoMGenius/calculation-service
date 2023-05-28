@@ -40,14 +40,18 @@ public class PotentialIncomeServiceImpl implements PotentialIncomeService {
     public PotentialIncome create(CreatePotentialIncomeArgument argument) {
         return repository.save(PotentialIncome.builder()
                                               .typeOfBusiness(argument.getTypeOfBusiness())
-                                              .result(argument.getResult())
+                                              .rate(argument.getRate())
+                                              .totalPotentCost(argument.getTotalPotentCost())
+                                              .potentialAnnualIncome(argument.getPotentialAnnualIncome())
                                               .build());
     }
 
     private Predicate buildPredicate(SearchPotentialIncomeArgument argument) {
         return QPredicates.builder()
                           .add(argument.getTypeOfBusiness(), qPotentialIncome.typeOfBusiness::containsIgnoreCase)
-//                .add(argument.getResult(), qPotentialIncome.result.any().conditionDescription::containsIgnoreCase)
+                          .add(argument.getPotentialAnnualIncome(), qPotentialIncome.potentialAnnualIncome::eq)
+                          .add(argument.getRate(), qPotentialIncome.rate::eq)
+                          .add(argument.getTotalPotentCost(), qPotentialIncome.totalPotentCost::eq)
                           .buildAnd();
     }
 }

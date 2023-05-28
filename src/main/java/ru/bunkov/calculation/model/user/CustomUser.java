@@ -4,7 +4,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.bunkov.calculation.model.Calculation;
+import ru.bunkov.calculation.model.calculation.Calculation;
 
 import javax.persistence.*;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString //todo whoami
 public class CustomUser implements UserDetails {
 
     @Id

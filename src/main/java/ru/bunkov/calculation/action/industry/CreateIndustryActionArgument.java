@@ -2,7 +2,7 @@ package ru.bunkov.calculation.action.industry;
 
 import lombok.Builder;
 import lombok.Value;
-import ru.bunkov.calculation.api.industry.subindustry.dto.SubindustryDto;
+import ru.bunkov.calculation.api.external.industry.subindustry.dto.SubindustryDto;
 
 import java.util.List;
 

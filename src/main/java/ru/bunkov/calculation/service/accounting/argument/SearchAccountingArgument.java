@@ -9,9 +9,15 @@ import ru.bunkov.calculation.model.accounting.Form;
 public class SearchAccountingArgument {
     Form organizationalAndLegalForm;
 
-    Double generalTaxationSystem;
+    Double generalTaxationSystemMin;
 
-    Double simplifiedTaxationSystem;
+    Double generalTaxationSystemMax;
 
-    Double patent;
+    Double simplifiedTaxationSystemMin;
+
+    Double simplifiedTaxationSystemMax;
+
+    Double patentMin;
+
+    Double patentMax;
 }

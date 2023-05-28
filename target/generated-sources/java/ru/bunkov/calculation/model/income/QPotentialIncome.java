@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -22,7 +21,11 @@ public class QPotentialIncome extends EntityPathBase<PotentialIncome> {
 
     public final ComparablePath<java.util.UUID> id = createComparable("id", java.util.UUID.class);
 
-    public final ListPath<ConditionalResult, QConditionalResult> result = this.<ConditionalResult, QConditionalResult>createList("result", ConditionalResult.class, QConditionalResult.class, PathInits.DIRECT2);
+    public final NumberPath<Double> potentialAnnualIncome = createNumber("potentialAnnualIncome", Double.class);
+
+    public final NumberPath<Double> rate = createNumber("rate", Double.class);
+
+    public final NumberPath<Double> totalPotentCost = createNumber("totalPotentCost", Double.class);
 
     public final StringPath typeOfBusiness = createString("typeOfBusiness");
 

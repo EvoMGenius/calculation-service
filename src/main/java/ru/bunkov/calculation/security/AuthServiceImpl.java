@@ -7,11 +7,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.bunkov.calculation.api.auth.dto.AuthRequest;
-import ru.bunkov.calculation.api.auth.dto.AuthResponse;
-import ru.bunkov.calculation.api.auth.dto.RegisterRequest;
+import ru.bunkov.calculation.api.external.auth.dto.AuthRequest;
+import ru.bunkov.calculation.api.external.auth.dto.AuthResponse;
+import ru.bunkov.calculation.api.external.auth.dto.RegisterRequest;
 import ru.bunkov.calculation.model.user.CustomUser;
 import ru.bunkov.calculation.service.user.CustomUserService;
 import ru.bunkov.calculation.service.user.argument.CreateUserArgument;
@@ -37,6 +38,12 @@ public class AuthServiceImpl implements AuthService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUser details = (CustomUser) authentication.getPrincipal();
         return details.getId();
+    }
+
+    @Override
+    public UserDetails getAuthorizedUserDetails() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return (CustomUser) authentication.getPrincipal();
     }
 
     @Override
