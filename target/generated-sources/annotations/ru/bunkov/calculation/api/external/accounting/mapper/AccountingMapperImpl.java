@@ -10,7 +10,7 @@ import ru.bunkov.calculation.service.accounting.argument.SearchAccountingArgumen
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-29T05:58:32+1000",
+    date = "2023-05-29T06:54:41+1000",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_345 (Temurin)"
 )
 public class AccountingMapperImpl implements AccountingMapper {
@@ -23,7 +23,7 @@ public class AccountingMapperImpl implements AccountingMapper {
 
         SearchAccountingArgument.SearchAccountingArgumentBuilder searchAccountingArgument = SearchAccountingArgument.builder();
 
-        searchAccountingArgument.organizationalAndLegalForm( dto.getOrganizationalAndLegalForm() );
+        searchAccountingArgument.organizationalLegalForm( dto.getOrganizationalLegalForm() );
         searchAccountingArgument.generalTaxationSystemMin( dto.getGeneralTaxationSystemMin() );
         searchAccountingArgument.generalTaxationSystemMax( dto.getGeneralTaxationSystemMax() );
         searchAccountingArgument.simplifiedTaxationSystemMin( dto.getSimplifiedTaxationSystemMin() );
@@ -43,6 +43,7 @@ public class AccountingMapperImpl implements AccountingMapper {
         AccountingDto accountingDto = new AccountingDto();
 
         accountingDto.setId( accounting.getId() );
+        accountingDto.setOrganizationalLegalForm( accounting.getOrganizationalLegalForm() );
         accountingDto.setGeneralTaxationSystemMin( accounting.getGeneralTaxationSystemMin() );
         accountingDto.setGeneralTaxationSystemMax( accounting.getGeneralTaxationSystemMax() );
         accountingDto.setSimplifiedTaxationSystemMin( accounting.getSimplifiedTaxationSystemMin() );
@@ -61,7 +62,7 @@ public class AccountingMapperImpl implements AccountingMapper {
 
         CreateAccountingArgument.CreateAccountingArgumentBuilder createAccountingArgument = CreateAccountingArgument.builder();
 
-        createAccountingArgument.organizationalAndLegalForm( dto.getOrganizationalAndLegalForm() );
+        createAccountingArgument.organizationalLegalForm( dto.getOrganizationalLegalForm() );
         createAccountingArgument.generalTaxationSystemMin( dto.getGeneralTaxationSystemMin() );
         createAccountingArgument.generalTaxationSystemMax( dto.getGeneralTaxationSystemMax() );
         createAccountingArgument.simplifiedTaxationSystemMin( dto.getSimplifiedTaxationSystemMin() );

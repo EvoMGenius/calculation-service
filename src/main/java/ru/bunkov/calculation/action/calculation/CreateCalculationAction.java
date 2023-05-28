@@ -143,31 +143,30 @@ public class CreateCalculationAction {
         Optional<Double> salary = Optional.ofNullable(dto.getAverageSalary());
 
         Subindustry subind = null;
+
+        Industry industry = industryService.getExisting(industryId);
+        List<Subindustry> subindustries = industry.getSubindustry();
+        if (subindustryId != null) {
+            UUID finalSubindustryId = subindustryId;
+            Subindustry currentSubindustry = subindustries.stream()
+                                                          .filter(subindustry -> subindustry.getId().equals(finalSubindustryId))
+                                                          .findFirst()
+                                                          .orElseThrow(NotFoundException::new);
+            subind = currentSubindustry;
+        } else {
+            Subindustry currentSubindustry = subindustries.stream()
+                                                          .filter(subindustry -> subindustry.getName().equals(industry.getName()))
+                                                          .findFirst()
+                                                          .orElseThrow(NotFoundException::new);
+            subind = currentSubindustry;
+        }
+
         if (salary.isPresent()) {
             currentAverageSalary = BigDecimal.valueOf(dto.getAverageSalary());
         } else {
-            Industry industry = industryService.getExisting(industryId);
-            List<Subindustry> subindustries = industry.getSubindustry();
-            if (subindustryId != null) {
-                UUID finalSubindustryId = subindustryId;
-                Subindustry currentSubindustry = subindustries.stream()
-                                                              .filter(subindustry -> subindustry.getId().equals(finalSubindustryId))
-                                                              .findFirst()
-                                                              .orElseThrow(NotFoundException::new);
-                BigDecimal summSalary = currentSubindustry.getAverageSalary2020().add(currentSubindustry.getAverageSalary2021());
-                summSalary = summSalary.divide(BigDecimal.valueOf(2));
-                currentAverageSalary = summSalary;
-                subind = currentSubindustry;
-            } else {
-                Subindustry currentSubindustry = subindustries.stream()
-                                                              .filter(subindustry -> subindustry.getName().equals(industry.getName()))
-                                                              .findFirst()
-                                                              .orElseThrow(NotFoundException::new);
-                BigDecimal summSalary = currentSubindustry.getAverageSalary2020().add(currentSubindustry.getAverageSalary2021());
-                summSalary = summSalary.divide(BigDecimal.valueOf(2));
-                currentAverageSalary = summSalary;
-                subind = currentSubindustry;
-            }
+            BigDecimal summSalary = subind.getAverageSalary2020().add(subind.getAverageSalary2021());
+            summSalary = summSalary.divide(BigDecimal.valueOf(2));
+            currentAverageSalary = summSalary;
         }
         // average salary matcher end
 
@@ -275,7 +274,7 @@ public class CreateCalculationAction {
         // expenses end
 
         boolean usingAccountingService = dto.isUsingAccountingService();
-        BigDecimal accountingCost = BigDecimal.ZERO;
+        BigDecimal accountingCost;
         BigDecimal costTaxationSystemMin = BigDecimal.ZERO;
         BigDecimal costTaxationSystemMax = BigDecimal.ZERO;
         if (organizationalAndLegalForm.equals(Form.IE.name())) {
@@ -292,6 +291,21 @@ public class CreateCalculationAction {
                 costTaxationSystemMin = accounting.getPatentMin();
                 costTaxationSystemMax = accounting.getPatentMax();
             }
+        }else {
+            Accounting accounting = accountingService.getByForm(Form.OOO);
+            if (dto.getTaxationSystemType().toLowerCase().equals("general")) {
+                costTaxationSystemMin = accounting.getGeneralTaxationSystemMin();
+                costTaxationSystemMax = accounting.getGeneralTaxationSystemMax();
+            }
+            if (dto.getTaxationSystemType().toLowerCase().equals("simplified")) {
+                costTaxationSystemMin = accounting.getSimplifiedTaxationSystemMin();
+                costTaxationSystemMax = accounting.getSimplifiedTaxationSystemMax();
+            }
+            if (dto.getTaxationSystemType().toLowerCase().equals("patent")) {
+                costTaxationSystemMin = accounting.getPatentMin();
+                costTaxationSystemMax = accounting.getPatentMax();
+            }
+
         }
         accountingCost = costTaxationSystemMax.add(costTaxationSystemMin);
         accountingCost = accountingCost.divide(BigDecimal.valueOf(2));
@@ -301,7 +315,7 @@ public class CreateCalculationAction {
         if (organizationalAndLegalForm.equals(Form.IE.name())) {
             initialExpenses = initialExpenses.add(BigDecimal.valueOf(Constant.REGISTRATION_FEE_FOR_IE));
         }
-        if (organizationalAndLegalForm.equals(Form.LLC.name())) {
+        if (organizationalAndLegalForm.equals(Form.AO.name())||organizationalAndLegalForm.equals(Form.OOO.name())) {
             initialExpenses = initialExpenses.add(BigDecimal.valueOf(Constant.REGISTRATION_FEE_FOR_LE));
         }
         initialExpenses = initialExpenses.add(accountingCost);

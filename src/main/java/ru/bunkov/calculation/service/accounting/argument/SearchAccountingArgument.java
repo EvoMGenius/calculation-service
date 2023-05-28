@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Value
 @Builder
 public class SearchAccountingArgument {
-    Form organizationalAndLegalForm;
+    Form organizationalLegalForm;
 
     BigDecimal generalTaxationSystemMin;
 

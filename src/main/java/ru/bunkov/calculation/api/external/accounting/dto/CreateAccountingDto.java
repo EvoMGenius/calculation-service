@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Data
 public class CreateAccountingDto {
 
-    private Form organizationalAndLegalForm;
+    private Form organizationalLegalForm;
 
     private BigDecimal generalTaxationSystemMin;
 

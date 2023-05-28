@@ -45,7 +45,7 @@ public class AccountingServiceImpl implements AccountingService {
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Accounting create(CreateAccountingArgument argument) {
         return repository.save(Accounting.builder()
-                                         .organizationalLegalForm(argument.getOrganizationalAndLegalForm())
+                                         .organizationalLegalForm(argument.getOrganizationalLegalForm())
                                          .simplifiedTaxationSystemMax(argument.getSimplifiedTaxationSystemMax())
                                          .simplifiedTaxationSystemMin(argument.getSimplifiedTaxationSystemMin())
                                          .generalTaxationSystemMin(argument.getGeneralTaxationSystemMin())
@@ -63,7 +63,6 @@ public class AccountingServiceImpl implements AccountingService {
 
     private Predicate buildPredicate(SearchAccountingArgument argument) {
         return QPredicates.builder()
-                          .add(argument.getOrganizationalAndLegalForm(), qAccounting.organizationalLegalForm::eq)
                           .buildAnd();
     }
 }

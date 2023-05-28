@@ -2,9 +2,7 @@ package ru.bunkov.calculation.model.accounting;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -20,6 +18,7 @@ public class Accounting {
     @GeneratedValue
     private UUID id;
 
+    @Enumerated(EnumType.STRING)
     private Form organizationalLegalForm;
 
     private BigDecimal generalTaxationSystemMin;

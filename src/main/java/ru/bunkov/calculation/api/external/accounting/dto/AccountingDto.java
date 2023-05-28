@@ -11,7 +11,7 @@ public class AccountingDto {
 
     private UUID id;
 
-    private Form organizationalAndLegalForm;
+    private Form organizationalLegalForm;
 
     private BigDecimal generalTaxationSystemMin;
 

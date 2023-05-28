@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Builder
 public class CreateAccountingArgument {
 
-    Form organizationalAndLegalForm;
+    Form organizationalLegalForm;
 
     BigDecimal generalTaxationSystemMin;
 

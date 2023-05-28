@@ -24,7 +24,7 @@ public class AccountingController {
 
     @GetMapping("list")
     public List<AccountingDto> getList(SearchAccountingDto dto,
-                                       @SortDefault(value = {"organizationalAndLegalForm"}, direction = Sort.Direction.ASC)
+                                       @SortDefault(value = {"organizationalLegalForm"}, direction = Sort.Direction.ASC)
                                        Sort sort) {
         SearchAccountingArgument argument = AccountingMapper.ACCOUNTING_MAPPER.toSearchArgument(dto);
         return accountingService.getList(argument, sort).stream()
