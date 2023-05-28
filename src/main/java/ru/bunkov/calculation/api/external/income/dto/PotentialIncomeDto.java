@@ -2,6 +2,7 @@ package ru.bunkov.calculation.api.external.income.dto;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -10,9 +11,9 @@ public class PotentialIncomeDto {
 
     private String typeOfBusiness;
 
-    private Double potentialAnnualIncome;
+    private BigDecimal potentialAnnualIncome;
 
-    private Double rate;
+    private BigDecimal rate;
 
-    private Double totalPotentCost;
+    private BigDecimal totalPotentCost;
 }

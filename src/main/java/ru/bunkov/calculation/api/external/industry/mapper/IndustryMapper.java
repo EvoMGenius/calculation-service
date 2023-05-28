@@ -1,9 +1,11 @@
 package ru.bunkov.calculation.api.external.industry.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import ru.bunkov.calculation.action.industry.CreateIndustryActionArgument;
 import ru.bunkov.calculation.api.external.industry.dto.CreateIndustryDto;
+import ru.bunkov.calculation.api.external.industry.dto.CreateSimpleIndustryDto;
 import ru.bunkov.calculation.api.external.industry.dto.IndustryDto;
 import ru.bunkov.calculation.api.external.industry.dto.SearchIndustryDto;
 import ru.bunkov.calculation.model.industry.Industry;

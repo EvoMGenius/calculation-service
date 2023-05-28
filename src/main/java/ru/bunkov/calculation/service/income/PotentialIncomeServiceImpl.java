@@ -5,6 +5,8 @@ import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import ru.bunkov.calculation.exception.NotFoundException;
 import ru.bunkov.calculation.model.income.PotentialIncome;
 import ru.bunkov.calculation.model.income.QPotentialIncome;
@@ -25,11 +27,13 @@ public class PotentialIncomeServiceImpl implements PotentialIncomeService {
     private final QPotentialIncome qPotentialIncome = QPotentialIncome.potentialIncome;
 
     @Override
+    @Transactional(readOnly = true)
     public PotentialIncome getExisting(UUID id) {
         return repository.findById(id).orElseThrow(NotFoundException::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<PotentialIncome> getList(SearchPotentialIncomeArgument argument, Sort sort) {
         Predicate predicate = buildPredicate(argument);
 
@@ -37,6 +41,7 @@ public class PotentialIncomeServiceImpl implements PotentialIncomeService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public PotentialIncome create(CreatePotentialIncomeArgument argument) {
         return repository.save(PotentialIncome.builder()
                                               .typeOfBusiness(argument.getTypeOfBusiness())

@@ -15,21 +15,21 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QRegion extends EntityPathBase<Region> {
 
-    private static final long serialVersionUID = 1308227998L;
+    private static final long serialVersionUID = -852653576L;
 
     public static final QRegion region = new QRegion("region");
 
     public final ComparablePath<java.util.UUID> id = createComparable("id", java.util.UUID.class);
 
-    public final NumberPath<Double> landLease = createNumber("landLease", Double.class);
+    public final NumberPath<java.math.BigDecimal> landLease = createNumber("landLease", java.math.BigDecimal.class);
 
     public final StringPath name = createString("name");
 
-    public final NumberPath<Double> purchaseLand = createNumber("purchaseLand", Double.class);
+    public final NumberPath<java.math.BigDecimal> purchaseLand = createNumber("purchaseLand", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> rentRoomMax = createNumber("rentRoomMax", Double.class);
+    public final NumberPath<java.math.BigDecimal> rentRoomMax = createNumber("rentRoomMax", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> rentRoomMin = createNumber("rentRoomMin", Double.class);
+    public final NumberPath<java.math.BigDecimal> rentRoomMin = createNumber("rentRoomMin", java.math.BigDecimal.class);
 
     public QRegion(String variable) {
         super(Region.class, forVariable(variable));

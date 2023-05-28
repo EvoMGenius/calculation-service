@@ -6,6 +6,7 @@ import ru.bunkov.calculation.service.equipment.argument.CreateEquipmentArgument;
 import ru.bunkov.calculation.service.equipment.argument.SearchEquipmentArgument;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface EquipmentService {
@@ -15,4 +16,6 @@ public interface EquipmentService {
     List<Equipment> getList(SearchEquipmentArgument argument, Sort sort);
 
     Equipment create(CreateEquipmentArgument argument);
+
+    List<Equipment> findAllByIdIn(Set<UUID> equipmentIds);
 }

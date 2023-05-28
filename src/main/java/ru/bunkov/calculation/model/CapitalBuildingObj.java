@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -21,5 +22,5 @@ public class CapitalBuildingObj {
 
     private String type;
 
-    private Double cost;
+    private BigDecimal cost;
 }

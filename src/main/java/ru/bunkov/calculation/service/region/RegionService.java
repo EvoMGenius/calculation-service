@@ -15,4 +15,6 @@ public interface RegionService {
     List<Region> getList(SearchRegionArgument argument, Sort sort);
 
     Region create(CreateRegionArgument argument);
+
+    List<Region> findAllByNameIn(List<String> regionNames);
 }

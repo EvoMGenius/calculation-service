@@ -10,7 +10,7 @@ import ru.bunkov.calculation.service.accounting.argument.SearchAccountingArgumen
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-28T06:50:13+1000",
+    date = "2023-05-29T05:58:32+1000",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_345 (Temurin)"
 )
 public class AccountingMapperImpl implements AccountingMapper {
@@ -43,7 +43,6 @@ public class AccountingMapperImpl implements AccountingMapper {
         AccountingDto accountingDto = new AccountingDto();
 
         accountingDto.setId( accounting.getId() );
-        accountingDto.setOrganizationalAndLegalForm( accounting.getOrganizationalAndLegalForm() );
         accountingDto.setGeneralTaxationSystemMin( accounting.getGeneralTaxationSystemMin() );
         accountingDto.setGeneralTaxationSystemMax( accounting.getGeneralTaxationSystemMax() );
         accountingDto.setSimplifiedTaxationSystemMin( accounting.getSimplifiedTaxationSystemMin() );

@@ -52,6 +52,12 @@ public class RegionServiceImpl implements RegionService {
                                      .build());
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Region> findAllByNameIn(List<String> regionNames) {
+        return repository.findAllByNameIn(regionNames);
+    }
+
     private Predicate buildPredicate(SearchRegionArgument argument) {
         return QPredicates.builder()
                           .add(argument.getName(), qRegion.name::containsIgnoreCase)

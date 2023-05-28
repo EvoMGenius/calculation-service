@@ -4,6 +4,7 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import java.math.BigDecimal;
 import java.util.List;
 
 import lombok.*;
@@ -25,5 +26,5 @@ public class TotalCapitalBuildingCost {
     })
     private List<PairForCapitalBuilding> capitalBuildingObjIdAndAreaPairList;
 
-    private Double totalCapitalBuildingCost;
+    private BigDecimal totalCapitalBuildingCost;
 }

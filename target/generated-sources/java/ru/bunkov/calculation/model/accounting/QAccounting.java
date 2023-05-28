@@ -19,21 +19,21 @@ public class QAccounting extends EntityPathBase<Accounting> {
 
     public static final QAccounting accounting = new QAccounting("accounting");
 
-    public final NumberPath<Double> generalTaxationSystemMax = createNumber("generalTaxationSystemMax", Double.class);
+    public final NumberPath<java.math.BigDecimal> generalTaxationSystemMax = createNumber("generalTaxationSystemMax", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> generalTaxationSystemMin = createNumber("generalTaxationSystemMin", Double.class);
+    public final NumberPath<java.math.BigDecimal> generalTaxationSystemMin = createNumber("generalTaxationSystemMin", java.math.BigDecimal.class);
 
     public final ComparablePath<java.util.UUID> id = createComparable("id", java.util.UUID.class);
 
-    public final EnumPath<Form> organizationalAndLegalForm = createEnum("organizationalAndLegalForm", Form.class);
+    public final EnumPath<Form> organizationalLegalForm = createEnum("organizationalLegalForm", Form.class);
 
-    public final NumberPath<Double> patentMax = createNumber("patentMax", Double.class);
+    public final NumberPath<java.math.BigDecimal> patentMax = createNumber("patentMax", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> patentMin = createNumber("patentMin", Double.class);
+    public final NumberPath<java.math.BigDecimal> patentMin = createNumber("patentMin", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> simplifiedTaxationSystemMax = createNumber("simplifiedTaxationSystemMax", Double.class);
+    public final NumberPath<java.math.BigDecimal> simplifiedTaxationSystemMax = createNumber("simplifiedTaxationSystemMax", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> simplifiedTaxationSystemMin = createNumber("simplifiedTaxationSystemMin", Double.class);
+    public final NumberPath<java.math.BigDecimal> simplifiedTaxationSystemMin = createNumber("simplifiedTaxationSystemMin", java.math.BigDecimal.class);
 
     public QAccounting(String variable) {
         super(Accounting.class, forVariable(variable));

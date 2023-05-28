@@ -3,44 +3,54 @@ package ru.bunkov.calculation.service.industry.subindustry.argument;
 import lombok.Builder;
 import lombok.Value;
 
+import java.math.BigDecimal;
+
 @Value
 @Builder
 public class SearchSubindustryArgument {
     String name;
 
-    Double averageEmployeeCount2020;
+    BigDecimal averageEmployeeCount2020;
 
-    Double averageEmployeeCount2021;
+    BigDecimal averageEmployeeCount2021;
 
-    Double averageSalary2020;
+    BigDecimal averageSalary2020;
 
-    Double averageSalary2021;
+    BigDecimal averageSalary2021;
 
-    Double taxToMoscowBudget2021;
+    BigDecimal taxToMoscowBudget2021;
 
-    Double taxToMoscowBudget2022;
+    BigDecimal taxToMoscowBudget2022;
 
-    Double incomeTax2021;
+    BigDecimal incomeTax2021;
 
-    Double incomeTax2022;
+    BigDecimal incomeTax2022;
 
-    Double propertyTax2021;
+    BigDecimal propertyTax2021;
 
-    Double propertyTax2022;
+    BigDecimal propertyTax2022;
 
-    Double landTax2021;
+    BigDecimal landTax2021;
 
-    Double landTax2022;
+    BigDecimal landTax2022;
 
-    Double personalIncomeTax2021;
+    BigDecimal personalIncomeTax2021;
 
-    Double personalIncomeTax2022;
+    BigDecimal personalIncomeTax2022;
 
-    Double transportTax2021;
+    BigDecimal transportTax2021;
 
-    Double transportTax2022;
+    BigDecimal transportTax2022;
 
-    Double otherTax2021;
+    BigDecimal otherTax2021;
 
-    Double otherTax2022;
+    BigDecimal otherTax2022;
+
+    BigDecimal taxSumm2021;
+
+    BigDecimal taxSumm2022;
+
+    BigDecimal spendOnHiringStaff2020;
+
+    BigDecimal spendOnHiringStaff2021;
 }

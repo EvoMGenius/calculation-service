@@ -29,7 +29,7 @@ public class CreateIndustryAction {
 
         List<Subindustry> newSubindustries = subindustrys.stream()
                                                          .map(result -> subindustryService
-                                                                 .create(CreateSubindustryArgument.builder()
+                                                                 .upsert(CreateSubindustryArgument.builder()
                                                                                                   .name(result.getName())
                                                                                                   .averageEmployeeCount2020(result.getAverageEmployeeCount2020())
                                                                                                   .averageEmployeeCount2021(result.getAverageEmployeeCount2021())
@@ -49,10 +49,14 @@ public class CreateIndustryAction {
                                                                                                   .transportTax2022(result.getTransportTax2022())
                                                                                                   .otherTax2021(result.getOtherTax2021())
                                                                                                   .otherTax2022(result.getOtherTax2022())
+                                                                                                  .taxSumm2021(result.getTaxSumm2021())
+                                                                                                  .taxSumm2022(result.getTaxSumm2022())
+                                                                                                  .spendOnHiringStaff2020(result.getSpendOnHiringStaff2020())
+                                                                                                  .spendOnHiringStaff2021(result.getSpendOnHiringStaff2021())
                                                                                                   .build()))
                                                          .collect(Collectors.toList());
 
-        return industryService.create(CreateIndustryArgument.builder()
+        return industryService.upsert(CreateIndustryArgument.builder()
                                                             .name(argument.getName())
                                                             .subindustry(newSubindustries)
                                                             .build());

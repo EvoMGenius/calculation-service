@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.UUID;
 
 @Entity
@@ -21,11 +23,39 @@ public class Region {
 
     private String name;
 
-    private Double purchaseLand;
+    private BigDecimal purchaseLand;
 
-    private Double landLease;
+    private BigDecimal landLease;
 
-    private Double rentRoomMin;
+    private BigDecimal rentRoomMin;
 
-    private Double rentRoomMax;
+    private BigDecimal rentRoomMax;
+
+    public static Comparator<Region> rentRoomMinComparator = new Comparator<Region>() {
+        @Override
+        public int compare(Region o1, Region o2) {
+            return o1.rentRoomMin.compareTo(o2.rentRoomMin);
+        }
+    };
+
+    public static Comparator<Region> rentRoomMaxComparator = new Comparator<Region>() {
+        @Override
+        public int compare(Region o1, Region o2) {
+            return o1.rentRoomMax.compareTo(o2.rentRoomMax);
+        }
+    };
+
+    public static Comparator<Region> landLeaseComparator = new Comparator<Region>() {
+        @Override
+        public int compare(Region o1, Region o2) {
+            return o1.landLease.compareTo(o2.landLease);
+        }
+    };
+
+    public static Comparator<Region> purchaseLandComparator = new Comparator<Region>() {
+        @Override
+        public int compare(Region o1, Region o2) {
+            return o1.purchaseLand.compareTo(o2.purchaseLand);
+        }
+    };
 }

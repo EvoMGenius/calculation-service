@@ -2,6 +2,7 @@ package ru.bunkov.calculation.api.external.region.dto;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -10,11 +11,11 @@ public class RegionDto {
 
     private String name;
 
-    private Double purchaseLand;
+    private BigDecimal purchaseLand;
 
-    private Double landLease;
+    private BigDecimal landLease;
 
-    private Double rentRoomMin;
+    private BigDecimal rentRoomMin;
 
-    private Double rentRoomMax;
+    private BigDecimal rentRoomMax;
 }

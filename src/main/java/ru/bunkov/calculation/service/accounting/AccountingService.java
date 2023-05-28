@@ -2,6 +2,7 @@ package ru.bunkov.calculation.service.accounting;
 
 import org.springframework.data.domain.Sort;
 import ru.bunkov.calculation.model.accounting.Accounting;
+import ru.bunkov.calculation.model.accounting.Form;
 import ru.bunkov.calculation.service.accounting.argument.CreateAccountingArgument;
 import ru.bunkov.calculation.service.accounting.argument.SearchAccountingArgument;
 
@@ -15,4 +16,6 @@ public interface AccountingService {
     List<Accounting> getList(SearchAccountingArgument argument, Sort sort);
 
     Accounting create(CreateAccountingArgument argument);
+
+    Accounting getByForm(Form f);
 }

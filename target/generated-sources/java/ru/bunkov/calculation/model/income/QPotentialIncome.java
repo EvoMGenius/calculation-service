@@ -21,11 +21,11 @@ public class QPotentialIncome extends EntityPathBase<PotentialIncome> {
 
     public final ComparablePath<java.util.UUID> id = createComparable("id", java.util.UUID.class);
 
-    public final NumberPath<Double> potentialAnnualIncome = createNumber("potentialAnnualIncome", Double.class);
+    public final NumberPath<java.math.BigDecimal> potentialAnnualIncome = createNumber("potentialAnnualIncome", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> rate = createNumber("rate", Double.class);
+    public final NumberPath<java.math.BigDecimal> rate = createNumber("rate", java.math.BigDecimal.class);
 
-    public final NumberPath<Double> totalPotentCost = createNumber("totalPotentCost", Double.class);
+    public final NumberPath<java.math.BigDecimal> totalPotentCost = createNumber("totalPotentCost", java.math.BigDecimal.class);
 
     public final StringPath typeOfBusiness = createString("typeOfBusiness");
 

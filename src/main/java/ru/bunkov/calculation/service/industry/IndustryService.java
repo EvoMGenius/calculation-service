@@ -15,4 +15,6 @@ public interface IndustryService {
     List<Industry> getList(SearchIndustryArgument argument, Sort sort);
 
     Industry create(CreateIndustryArgument argument);
+
+    Industry upsert(CreateIndustryArgument argument);
 }

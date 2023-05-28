@@ -5,6 +5,8 @@ import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import ru.bunkov.calculation.exception.NotFoundException;
 import ru.bunkov.calculation.model.BuildingCost;
 import ru.bunkov.calculation.model.QBuildingCost;
@@ -14,6 +16,7 @@ import ru.bunkov.calculation.service.building.argument.SearchBuildingCostArgumen
 import ru.bunkov.calculation.util.QPredicates;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -25,11 +28,13 @@ public class BuildingCostServiceImpl implements BuildingCostService {
     private final QBuildingCost qBuildingCost = QBuildingCost.buildingCost;
 
     @Override
+    @Transactional(readOnly = true)
     public BuildingCost getExisting(UUID id) {
         return repository.findById(id).orElseThrow(NotFoundException::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<BuildingCost> getList(SearchBuildingCostArgument argument, Sort sort) {
         Predicate predicate = buildPredicate(argument);
 
@@ -44,10 +49,17 @@ public class BuildingCostServiceImpl implements BuildingCostService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public BuildingCost create(CreateBuildingCostArgument argument) {
         return repository.save(BuildingCost.builder()
                                            .type(argument.getType())
                                            .cost(argument.getCost())
                                            .build());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<BuildingCost> findAllByIdsIn(Set<UUID> buildingCostIds) {
+        return repository.findAllByIdIn(buildingCostIds);
     }
 }

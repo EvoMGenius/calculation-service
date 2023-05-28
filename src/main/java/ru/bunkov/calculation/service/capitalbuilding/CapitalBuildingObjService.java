@@ -6,6 +6,7 @@ import ru.bunkov.calculation.service.capitalbuilding.argument.CreateCapitalBuild
 import ru.bunkov.calculation.service.capitalbuilding.argument.SearchCapitalBuildingObjArgument;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface CapitalBuildingObjService {
@@ -14,4 +15,6 @@ public interface CapitalBuildingObjService {
     List<CapitalBuildingObj> getList(SearchCapitalBuildingObjArgument argument, Sort sort);
 
     CapitalBuildingObj create(CreateCapitalBuildingObjArgument argument);
+
+    List<CapitalBuildingObj> findAllByIdsIn(Set<UUID> capitalBuildingCostIds);
 }

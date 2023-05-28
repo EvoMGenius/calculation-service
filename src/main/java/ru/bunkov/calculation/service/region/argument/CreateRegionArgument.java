@@ -3,16 +3,18 @@ package ru.bunkov.calculation.service.region.argument;
 import lombok.Builder;
 import lombok.Value;
 
+import java.math.BigDecimal;
+
 @Value
 @Builder
 public class CreateRegionArgument {
     String name;
 
-    Double purchaseLand;
+    BigDecimal purchaseLand;
 
-    Double landLease;
+    BigDecimal landLease;
 
-    Double rentRoomMin;
+    BigDecimal rentRoomMin;
 
-    Double rentRoomMax;
+    BigDecimal rentRoomMax;
 }

@@ -1,49 +1,60 @@
 package ru.bunkov.calculation.api.external.industry.subindustry.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
+@Builder
 public class SubindustryDto {
 
     private UUID id;
 
     private String name;
 
-    private Double averageEmployeeCount2020;
+    private BigDecimal averageEmployeeCount2020;
 
-    private Double averageEmployeeCount2021;
+    private BigDecimal averageEmployeeCount2021;
 
-    private Double averageSalary2020;
+    private BigDecimal averageSalary2020;
 
-    private Double averageSalary2021;
+    private BigDecimal averageSalary2021;
 
-    private Double taxToMoscowBudget2021;
+    private BigDecimal taxToMoscowBudget2021;
 
-    private Double taxToMoscowBudget2022;
+    private BigDecimal taxToMoscowBudget2022;
 
-    private Double incomeTax2021;
+    private BigDecimal incomeTax2021;
 
-    private Double incomeTax2022;
+    private BigDecimal incomeTax2022;
 
-    private Double propertyTax2021;
+    private BigDecimal propertyTax2021;
 
-    private Double propertyTax2022;
+    private BigDecimal propertyTax2022;
 
-    private Double landTax2021;
+    private BigDecimal landTax2021;
 
-    private Double landTax2022;
+    private BigDecimal landTax2022;
 
-    private Double personalIncomeTax2021;
+    private BigDecimal personalIncomeTax2021;
 
-    private Double personalIncomeTax2022;
+    private BigDecimal personalIncomeTax2022;
 
-    private Double transportTax2021;
+    private BigDecimal transportTax2021;
 
-    private Double transportTax2022;
+    private BigDecimal transportTax2022;
 
-    private Double otherTax2021;
+    private BigDecimal otherTax2021;
 
-    private Double otherTax2022;
+    private BigDecimal otherTax2022;
+
+    private BigDecimal taxSumm2021;
+
+    private BigDecimal taxSumm2022;
+
+    private BigDecimal spendOnHiringStaff2020;
+
+    private BigDecimal spendOnHiringStaff2021;
 }

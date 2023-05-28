@@ -19,7 +19,7 @@ public class QBuildingCost extends EntityPathBase<BuildingCost> {
 
     public static final QBuildingCost buildingCost = new QBuildingCost("buildingCost");
 
-    public final NumberPath<Double> cost = createNumber("cost", Double.class);
+    public final NumberPath<java.math.BigDecimal> cost = createNumber("cost", java.math.BigDecimal.class);
 
     public final ComparablePath<java.util.UUID> id = createComparable("id", java.util.UUID.class);
 

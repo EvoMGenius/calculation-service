@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bunkov.calculation.exception.NotFoundException;
 import ru.bunkov.calculation.model.accounting.Accounting;
+import ru.bunkov.calculation.model.accounting.Form;
 import ru.bunkov.calculation.model.accounting.QAccounting;
 import ru.bunkov.calculation.repository.AccountingRepository;
 import ru.bunkov.calculation.service.accounting.argument.CreateAccountingArgument;
@@ -44,7 +45,7 @@ public class AccountingServiceImpl implements AccountingService {
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Accounting create(CreateAccountingArgument argument) {
         return repository.save(Accounting.builder()
-                                         .organizationalAndLegalForm(argument.getOrganizationalAndLegalForm())
+                                         .organizationalLegalForm(argument.getOrganizationalAndLegalForm())
                                          .simplifiedTaxationSystemMax(argument.getSimplifiedTaxationSystemMax())
                                          .simplifiedTaxationSystemMin(argument.getSimplifiedTaxationSystemMin())
                                          .generalTaxationSystemMin(argument.getGeneralTaxationSystemMin())
@@ -54,9 +55,15 @@ public class AccountingServiceImpl implements AccountingService {
                                          .build());
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Accounting getByForm(Form f) {
+        return repository.findByOrganizationalLegalForm(f);
+    }
+
     private Predicate buildPredicate(SearchAccountingArgument argument) {
         return QPredicates.builder()
-                          .add(argument.getOrganizationalAndLegalForm(), qAccounting.organizationalAndLegalForm::eq)
+                          .add(argument.getOrganizationalAndLegalForm(), qAccounting.organizationalLegalForm::eq)
                           .buildAnd();
     }
 }

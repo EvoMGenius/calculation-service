@@ -15,4 +15,6 @@ public interface SubindustryService {
     List<Subindustry> getList(SearchSubindustryArgument argument, Sort sort);
 
     Subindustry create(CreateSubindustryArgument argument);
+
+    Subindustry upsert(CreateSubindustryArgument build);
 }

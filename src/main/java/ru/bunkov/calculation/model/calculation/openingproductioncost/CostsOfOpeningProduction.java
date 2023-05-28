@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import java.math.BigDecimal;
 
 @Embeddable
 @Getter
@@ -22,5 +23,5 @@ public class CostsOfOpeningProduction {
     @Embedded
     private PurchasePatent purchasePatent;
 
-    private Double totalCostOfOpeningProduction;
+    private BigDecimal totalCostOfOpeningProduction;
 }

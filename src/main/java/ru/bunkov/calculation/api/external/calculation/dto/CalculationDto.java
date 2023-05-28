@@ -1,41 +1,50 @@
 package ru.bunkov.calculation.api.external.calculation.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
+@Builder
 public class CalculationDto {
 
     private UUID id;
 
-    private Double capitalInvestmentsLandCostMinTotalLandCost;
+    private BigDecimal capitalInvestmentsLandCostMinTotalLandCost;
 
-    private Double capitalInvestmentsLandCostMaxTotalLandCost;
+    private BigDecimal capitalInvestmentsLandCostMaxTotalLandCost;
 
-    private Double capitalInvestmentsTotalBuildingCost;
+    private BigDecimal capitalInvestmentsTotalBuildingCost;
 
-    private Double capitalInvestmentsCapitalTotalBuildingCost;
+    private BigDecimal capitalInvestmentsCapitalTotalBuildingCost;
 
-    private Double capitalInvestmentsTotalMinCost;
+    private BigDecimal capitalInvestmentsTotalMinCost;
 
-    private Double capitalInvestmentsTotalMaxCost;
+    private BigDecimal capitalInvestmentsTotalMaxCost;
 
-    private Double costsOfOpeningProductionEquipmentPurchasePriceTotalEquipmentCost;
+    private BigDecimal costsOfOpeningProductionEquipmentPurchasePriceTotalEquipmentCost;
 
-    private Double costsOfOpeningProductionHiringStaffTotalStaffCost;
+    private BigDecimal costsOfOpeningProductionHiringStaffTotalStaffCost;
 
-    private Double costsOfOpeningProductionPurchasePatentPatentCost;
+    private BigDecimal costsOfOpeningProductionPurchasePatentPatentCost;
 
-    private Double costsOfOpeningProductionTotalCost;
+    private BigDecimal costsOfOpeningProductionTotalCost;
 
-    private AllTaxDto allTax;
+    private BigDecimal expensesJobPaymentTotalJobPayment;
 
-    private Double totalSalaryPayment;
+    private BigDecimal expensesJobPaymentTotalPayedSalary;
 
-    private Double accountingCost;
+    private BigDecimal expensesJobPaymentMainTaxes;
 
-    private Double totalCostMinOfAll;
+    private OtherTaxDto otherTax;
 
-    private Double totalCostMaxOfAll;
+    private BigDecimal accountingCost;
+
+    private BigDecimal initialExpenses;
+
+    private BigDecimal totalCostMinOfAll;
+
+    private BigDecimal totalCostMaxOfAll;
 }

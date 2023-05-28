@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import java.math.BigDecimal;
 
 @Embeddable
 @Getter
@@ -22,7 +23,7 @@ public class CapitalInvestments {
     @Embedded
     private TotalCapitalBuildingCost totalCapitalBuildingCost;
 
-    private Double totalCostMin;
+    private BigDecimal totalCostMin;
 
-    private Double totalCostMax;
+    private BigDecimal totalCostMax;
 }

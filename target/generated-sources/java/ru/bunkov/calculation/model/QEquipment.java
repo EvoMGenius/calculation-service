@@ -19,7 +19,7 @@ public class QEquipment extends EntityPathBase<Equipment> {
 
     public static final QEquipment equipment = new QEquipment("equipment");
 
-    public final NumberPath<Double> averageCost = createNumber("averageCost", Double.class);
+    public final NumberPath<java.math.BigDecimal> averageCost = createNumber("averageCost", java.math.BigDecimal.class);
 
     public final StringPath equipmentType = createString("equipmentType");
 

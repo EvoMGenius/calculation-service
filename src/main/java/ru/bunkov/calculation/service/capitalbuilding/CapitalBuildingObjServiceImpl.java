@@ -5,6 +5,8 @@ import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import ru.bunkov.calculation.exception.NotFoundException;
 import ru.bunkov.calculation.model.CapitalBuildingObj;
 import ru.bunkov.calculation.model.QCapitalBuildingObj;
@@ -14,6 +16,7 @@ import ru.bunkov.calculation.service.capitalbuilding.argument.SearchCapitalBuild
 import ru.bunkov.calculation.util.QPredicates;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -25,11 +28,13 @@ public class CapitalBuildingObjServiceImpl implements CapitalBuildingObjService 
     private final QCapitalBuildingObj qCapitalBuildingObj = QCapitalBuildingObj.capitalBuildingObj;
 
     @Override
+    @Transactional(readOnly = true)
     public CapitalBuildingObj getExisting(UUID id) {
         return repository.findById(id).orElseThrow(NotFoundException::new);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<CapitalBuildingObj> getList(SearchCapitalBuildingObjArgument argument, Sort sort) {
         Predicate predicate = buildPredicate(argument);
 
@@ -44,10 +49,17 @@ public class CapitalBuildingObjServiceImpl implements CapitalBuildingObjService 
     }
 
     @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public CapitalBuildingObj create(CreateCapitalBuildingObjArgument argument) {
         return repository.save(CapitalBuildingObj.builder()
                                                  .type(argument.getType())
                                                  .cost(argument.getCost())
                                                  .build());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<CapitalBuildingObj> findAllByIdsIn(Set<UUID> capitalBuildingCostIds) {
+        return repository.findAllByIdIn(capitalBuildingCostIds);
     }
 }

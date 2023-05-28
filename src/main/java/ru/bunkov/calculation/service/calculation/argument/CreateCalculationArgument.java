@@ -3,9 +3,12 @@ package ru.bunkov.calculation.service.calculation.argument;
 import lombok.Builder;
 import lombok.Value;
 import ru.bunkov.calculation.model.accounting.Accounting;
-import ru.bunkov.calculation.model.calculation.TaxAndSalary;
+import ru.bunkov.calculation.model.calculation.Expenses;
 import ru.bunkov.calculation.model.calculation.capitalinvestment.CapitalInvestments;
 import ru.bunkov.calculation.model.calculation.openingproductioncost.CostsOfOpeningProduction;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Value
 @Builder
@@ -15,11 +18,15 @@ public class CreateCalculationArgument {
 
     CostsOfOpeningProduction costsOfOpeningProduction;
 
-    TaxAndSalary taxAndSalary;
+    Expenses expenses;
 
-    Accounting accounting;
+    BigDecimal accountingCost;
 
-    Double totalCostMinOfAll;
+    BigDecimal initialExpenses;
 
-    Double totalCostMaxOfAll;
+    BigDecimal totalCostMinOfAll;
+
+    BigDecimal totalCostMaxOfAll;
+
+    List<String> otherNeeds;
 }

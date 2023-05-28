@@ -3,6 +3,7 @@ package ru.bunkov.calculation.api.external.accounting.dto;
 import lombok.Data;
 import ru.bunkov.calculation.model.accounting.Form;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -12,15 +13,15 @@ public class AccountingDto {
 
     private Form organizationalAndLegalForm;
 
-    private Double generalTaxationSystemMin;
+    private BigDecimal generalTaxationSystemMin;
 
-    private Double generalTaxationSystemMax;
+    private BigDecimal generalTaxationSystemMax;
 
-    private Double simplifiedTaxationSystemMin;
+    private BigDecimal simplifiedTaxationSystemMin;
 
-    private Double simplifiedTaxationSystemMax;
+    private BigDecimal simplifiedTaxationSystemMax;
 
-    private Double patentMin;
+    private BigDecimal patentMin;
 
-    private Double patentMax;
+    private BigDecimal patentMax;
 }

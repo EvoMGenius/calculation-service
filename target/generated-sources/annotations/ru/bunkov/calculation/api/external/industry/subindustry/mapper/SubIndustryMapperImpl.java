@@ -10,7 +10,7 @@ import ru.bunkov.calculation.service.industry.subindustry.argument.SearchSubindu
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-28T06:50:13+1000",
+    date = "2023-05-29T05:58:32+1000",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_345 (Temurin)"
 )
 public class SubIndustryMapperImpl implements SubIndustryMapper {
@@ -42,6 +42,10 @@ public class SubIndustryMapperImpl implements SubIndustryMapper {
         searchSubindustryArgument.transportTax2022( dto.getTransportTax2022() );
         searchSubindustryArgument.otherTax2021( dto.getOtherTax2021() );
         searchSubindustryArgument.otherTax2022( dto.getOtherTax2022() );
+        searchSubindustryArgument.taxSumm2021( dto.getTaxSumm2021() );
+        searchSubindustryArgument.taxSumm2022( dto.getTaxSumm2022() );
+        searchSubindustryArgument.spendOnHiringStaff2020( dto.getSpendOnHiringStaff2020() );
+        searchSubindustryArgument.spendOnHiringStaff2021( dto.getSpendOnHiringStaff2021() );
 
         return searchSubindustryArgument.build();
     }
@@ -52,30 +56,34 @@ public class SubIndustryMapperImpl implements SubIndustryMapper {
             return null;
         }
 
-        SubindustryDto subindustryDto = new SubindustryDto();
+        SubindustryDto.SubindustryDtoBuilder subindustryDto = SubindustryDto.builder();
 
-        subindustryDto.setId( subindustry.getId() );
-        subindustryDto.setName( subindustry.getName() );
-        subindustryDto.setAverageEmployeeCount2020( subindustry.getAverageEmployeeCount2020() );
-        subindustryDto.setAverageEmployeeCount2021( subindustry.getAverageEmployeeCount2021() );
-        subindustryDto.setAverageSalary2020( subindustry.getAverageSalary2020() );
-        subindustryDto.setAverageSalary2021( subindustry.getAverageSalary2021() );
-        subindustryDto.setTaxToMoscowBudget2021( subindustry.getTaxToMoscowBudget2021() );
-        subindustryDto.setTaxToMoscowBudget2022( subindustry.getTaxToMoscowBudget2022() );
-        subindustryDto.setIncomeTax2021( subindustry.getIncomeTax2021() );
-        subindustryDto.setIncomeTax2022( subindustry.getIncomeTax2022() );
-        subindustryDto.setPropertyTax2021( subindustry.getPropertyTax2021() );
-        subindustryDto.setPropertyTax2022( subindustry.getPropertyTax2022() );
-        subindustryDto.setLandTax2021( subindustry.getLandTax2021() );
-        subindustryDto.setLandTax2022( subindustry.getLandTax2022() );
-        subindustryDto.setPersonalIncomeTax2021( subindustry.getPersonalIncomeTax2021() );
-        subindustryDto.setPersonalIncomeTax2022( subindustry.getPersonalIncomeTax2022() );
-        subindustryDto.setTransportTax2021( subindustry.getTransportTax2021() );
-        subindustryDto.setTransportTax2022( subindustry.getTransportTax2022() );
-        subindustryDto.setOtherTax2021( subindustry.getOtherTax2021() );
-        subindustryDto.setOtherTax2022( subindustry.getOtherTax2022() );
+        subindustryDto.id( subindustry.getId() );
+        subindustryDto.name( subindustry.getName() );
+        subindustryDto.averageEmployeeCount2020( subindustry.getAverageEmployeeCount2020() );
+        subindustryDto.averageEmployeeCount2021( subindustry.getAverageEmployeeCount2021() );
+        subindustryDto.averageSalary2020( subindustry.getAverageSalary2020() );
+        subindustryDto.averageSalary2021( subindustry.getAverageSalary2021() );
+        subindustryDto.taxToMoscowBudget2021( subindustry.getTaxToMoscowBudget2021() );
+        subindustryDto.taxToMoscowBudget2022( subindustry.getTaxToMoscowBudget2022() );
+        subindustryDto.incomeTax2021( subindustry.getIncomeTax2021() );
+        subindustryDto.incomeTax2022( subindustry.getIncomeTax2022() );
+        subindustryDto.propertyTax2021( subindustry.getPropertyTax2021() );
+        subindustryDto.propertyTax2022( subindustry.getPropertyTax2022() );
+        subindustryDto.landTax2021( subindustry.getLandTax2021() );
+        subindustryDto.landTax2022( subindustry.getLandTax2022() );
+        subindustryDto.personalIncomeTax2021( subindustry.getPersonalIncomeTax2021() );
+        subindustryDto.personalIncomeTax2022( subindustry.getPersonalIncomeTax2022() );
+        subindustryDto.transportTax2021( subindustry.getTransportTax2021() );
+        subindustryDto.transportTax2022( subindustry.getTransportTax2022() );
+        subindustryDto.otherTax2021( subindustry.getOtherTax2021() );
+        subindustryDto.otherTax2022( subindustry.getOtherTax2022() );
+        subindustryDto.taxSumm2021( subindustry.getTaxSumm2021() );
+        subindustryDto.taxSumm2022( subindustry.getTaxSumm2022() );
+        subindustryDto.spendOnHiringStaff2020( subindustry.getSpendOnHiringStaff2020() );
+        subindustryDto.spendOnHiringStaff2021( subindustry.getSpendOnHiringStaff2021() );
 
-        return subindustryDto;
+        return subindustryDto.build();
     }
 
     @Override
@@ -105,6 +113,10 @@ public class SubIndustryMapperImpl implements SubIndustryMapper {
         createSubindustryArgument.transportTax2022( dto.getTransportTax2022() );
         createSubindustryArgument.otherTax2021( dto.getOtherTax2021() );
         createSubindustryArgument.otherTax2022( dto.getOtherTax2022() );
+        createSubindustryArgument.taxSumm2021( dto.getTaxSumm2021() );
+        createSubindustryArgument.taxSumm2022( dto.getTaxSumm2022() );
+        createSubindustryArgument.spendOnHiringStaff2020( dto.getSpendOnHiringStaff2020() );
+        createSubindustryArgument.spendOnHiringStaff2021( dto.getSpendOnHiringStaff2021() );
 
         return createSubindustryArgument.build();
     }

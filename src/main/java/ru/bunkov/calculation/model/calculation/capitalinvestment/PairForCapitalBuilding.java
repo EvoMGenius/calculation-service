@@ -1,5 +1,6 @@
 package ru.bunkov.calculation.model.calculation.capitalinvestment;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import lombok.*;

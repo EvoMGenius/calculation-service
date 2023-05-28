@@ -3,6 +3,7 @@ package ru.bunkov.calculation.model.calculation.openingproductioncost;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Embeddable
@@ -20,5 +21,5 @@ public class EquipmentPurchasePrice {
     })
     private List<PairForEquipment> equipmentIdAndCountPairList;
 
-    private Double totalEquipmentCost;
+    private BigDecimal totalEquipmentCost;
 }

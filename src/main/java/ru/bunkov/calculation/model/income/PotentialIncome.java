@@ -3,6 +3,7 @@ package ru.bunkov.calculation.model.income;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,9 +22,9 @@ public class PotentialIncome {
     @Column(columnDefinition = "text")
     private String typeOfBusiness;
 
-    private Double potentialAnnualIncome;
+    private BigDecimal potentialAnnualIncome;
 
-    private Double rate;
+    private BigDecimal rate;
 
-    private Double totalPotentCost;
+    private BigDecimal totalPotentCost;
 }

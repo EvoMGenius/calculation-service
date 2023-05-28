@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -19,18 +20,18 @@ public class Accounting {
     @GeneratedValue
     private UUID id;
 
-    private Form organizationalAndLegalForm;
+    private Form organizationalLegalForm;
 
-    private Double generalTaxationSystemMin;
+    private BigDecimal generalTaxationSystemMin;
 
-    private Double generalTaxationSystemMax;
+    private BigDecimal generalTaxationSystemMax;
 
-    private Double simplifiedTaxationSystemMin;
+    private BigDecimal simplifiedTaxationSystemMin;
 
-    private Double simplifiedTaxationSystemMax;
+    private BigDecimal simplifiedTaxationSystemMax;
 
-    private Double patentMin;
+    private BigDecimal patentMin;
 
-    private Double patentMax;
+    private BigDecimal patentMax;
 
 }

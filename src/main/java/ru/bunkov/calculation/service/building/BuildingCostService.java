@@ -6,6 +6,7 @@ import ru.bunkov.calculation.service.building.argument.CreateBuildingCostArgumen
 import ru.bunkov.calculation.service.building.argument.SearchBuildingCostArgument;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface BuildingCostService {
@@ -15,4 +16,6 @@ public interface BuildingCostService {
     List<BuildingCost> getList(SearchBuildingCostArgument argument, Sort sort);
 
     BuildingCost create(CreateBuildingCostArgument argument);
+
+    List<BuildingCost> findAllByIdsIn(Set<UUID> buildingCostIds);
 }

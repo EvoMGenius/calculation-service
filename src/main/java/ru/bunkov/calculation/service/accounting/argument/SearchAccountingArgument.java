@@ -4,20 +4,22 @@ import lombok.Builder;
 import lombok.Value;
 import ru.bunkov.calculation.model.accounting.Form;
 
+import java.math.BigDecimal;
+
 @Value
 @Builder
 public class SearchAccountingArgument {
     Form organizationalAndLegalForm;
 
-    Double generalTaxationSystemMin;
+    BigDecimal generalTaxationSystemMin;
 
-    Double generalTaxationSystemMax;
+    BigDecimal generalTaxationSystemMax;
 
-    Double simplifiedTaxationSystemMin;
+    BigDecimal simplifiedTaxationSystemMin;
 
-    Double simplifiedTaxationSystemMax;
+    BigDecimal simplifiedTaxationSystemMax;
 
-    Double patentMin;
+    BigDecimal patentMin;
 
-    Double patentMax;
+    BigDecimal patentMax;
 }

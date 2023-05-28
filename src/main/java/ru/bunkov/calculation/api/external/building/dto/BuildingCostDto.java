@@ -2,6 +2,7 @@ package ru.bunkov.calculation.api.external.building.dto;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -10,5 +11,5 @@ public class BuildingCostDto {
 
     private String type;
 
-    private Double cost;
+    private BigDecimal cost;
 }

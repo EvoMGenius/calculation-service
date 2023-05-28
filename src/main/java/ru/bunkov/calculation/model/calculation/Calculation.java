@@ -1,11 +1,12 @@
 package ru.bunkov.calculation.model.calculation;
 
 import lombok.*;
-import ru.bunkov.calculation.model.accounting.Accounting;
 import ru.bunkov.calculation.model.calculation.capitalinvestment.CapitalInvestments;
 import ru.bunkov.calculation.model.calculation.openingproductioncost.CostsOfOpeningProduction;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -27,13 +28,16 @@ public class Calculation {
     private CostsOfOpeningProduction costsOfOpeningProduction;
 
     @Embedded
-    private TaxAndSalary taxAndSalary;
+    private Expenses expenses;
 
-    @ManyToOne
-    private Accounting accounting;
+    private BigDecimal accountingCost;
 
-    private Double totalCostMinOfAll;
+    private BigDecimal initialExpenses;
 
-    private Double totalCostMaxOfAll;
+    private BigDecimal totalCostMinOfAll;
 
+    private BigDecimal totalCostMaxOfAll;
+
+    @ElementCollection
+    private List<String> otherNeeds;
 }

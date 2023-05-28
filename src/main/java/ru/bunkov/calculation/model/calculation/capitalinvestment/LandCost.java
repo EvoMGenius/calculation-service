@@ -1,12 +1,11 @@
 package ru.bunkov.calculation.model.calculation.capitalinvestment;
 
-import java.util.List;
-import java.util.UUID;
-
 import lombok.*;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Embeddable
 @Getter
@@ -16,11 +15,11 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 public class LandCost {
     @ElementCollection
-    private List<UUID> regionIds;
+    private List<String> regionNames;
 
     private Double areaOnRegions;
 
-    private Double minTotalLandCost;
+    private BigDecimal minTotalLandCost;
 
-    private Double maxTotalLandCost;
+    private BigDecimal maxTotalLandCost;
 }
